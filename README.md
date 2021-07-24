@@ -1,4 +1,4 @@
-# IOT Fan Control App
+# IOT Fan Control App: https://github.com/dangnguyen1004/Fan-Control-Mobile-App
 ## Introduce
 This application is used to control electrical equipment such as fans and air conditioners in buildings of Bach Khoa University
 Besides, a server will receive the data from the sensor about the temperature and humidity and save the data to the server. This data is displayed in the user's app and if the temperature is too high or the humidity is too much, the server will automatically turn on the fan and air conditioner in the room at a reasonable time
