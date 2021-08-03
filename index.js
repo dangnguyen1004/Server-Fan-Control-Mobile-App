@@ -3,8 +3,8 @@ const { json } = require('express');
 const sendPushNotification = require('./pushNotifications');
 
 const client = mqtt.connect('mqtt://io.adafruit.com', {
-    username: 'NguyenDang',
-    password: 'aio_evft545DIw9L59a4eUkFagLB8UE6',
+    username: '',
+    password: '',
 });
 
 const express = require('express');
@@ -101,14 +101,14 @@ firebase.database().ref('airCons').on('value', snapshot => {
     }
 })
 
-let adaAccount = null
-let adaKey = null
-firebase.database().ref('adaAccount').on('value', snapshot => {
-    if (snapshot.val()) {
-        adaAccount = snapshot.val().account
-        adaKey = snapshot.val().key
-    }
-})
+// let adaAccount = null
+// let adaKey = null
+// firebase.database().ref('adaAccount').on('value', snapshot => {
+//     if (snapshot.val()) {
+//         adaAccount = snapshot.val().account
+//         adaKey = snapshot.val().key
+//     }
+// })
 
 firebase.database().ref('pendingRequests').on('child_added', snapshot => {
     if (snapshot.val()) {
@@ -144,7 +144,7 @@ client.on('message', function (topic, message, packet) {
     let patternTopicName = /bk-.*/
     let topicName = topic.match(patternTopicName)[0]
 
-    if (topicName === 'bk-iottemp-humid') {
+    if (topicName === 'bk-iot-temp-humid') {
         receiveDataFromSensor(data.data, topic.toString())
     }
 })
